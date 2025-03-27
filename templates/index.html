@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block title%} Blog de Noticias{% endblock %}
-{% block content%}
+{% block content %}
 <div class="columns">
     <div class="column is-offset-3 is-6">
-		    <a  href="{{ url_for('add_post') }}" class="button is-success"><i class="fa-solid fa-plus"></i> &nbsp; Agregar noticia</a>
-        <br><br>        
+        <a href="{{ url_for('add_post') }}" class="button is-success"><i class="fa-solid fa-plus"></i> &nbsp; Agregar noticia</a>
+        <br><br>
         {% for post in posts %}
         <div class="card">
             <div class="card-content">
@@ -16,10 +16,20 @@
                 </div>
                 <div class="content">
                     {{ post.content }}
-                    </div>
+                </div>
             </div>
+            <footer class="card-footer">
+                <!-- Botón de actualización -->
+                <a href="{{ url_for('update_post', id=post.id) }}" class="button is-small is-link is-outlined">
+                    <i class="fa-solid fa-pen-to-square"></i> Actualizar
+                </a>
+                <!-- Botón de eliminación -->
+                <a href="{{ url_for('delete_post', id=post.id) }}" class="button is-small is-danger is-outlined">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                </a>
+            </footer>
         </div>
         {% endfor %}
     </div>
 </div>
-{% endblock%}
+{% endblock %}
