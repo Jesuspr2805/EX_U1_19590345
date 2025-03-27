@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Panel de Control{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column is-10">
+            <br>
+            <div class="box has-background-white-ter">
+                <h1 class="title is-4 has-text-centered">Panel de Administración</h1>
+                
+                <div class="columns is-multiline is-centered">
+                    <div class="column is-6">
+                        <div class="box">
+                            <p class="title is-5">Administrar Noticias</p>
+                            <p class="subtitle is-6">CRUD de artículos</p>
+                            <a class="button is-info" href="{{ url_for('list_posts') }}">Acceder</a>
+                        </div>
+                    </div>
+
+                    <div class="column is-6">
+                        <div class="box">
+                            <p class="title is-5">Administrar Categorías</p>
+                            <p class="subtitle is-6">Gestión de taxonomías</p>
+                            <a class="button is-success" href="{{ url_for('list_categories') }}">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
